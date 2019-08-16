@@ -13,11 +13,13 @@ export class App extends Component {
   };
 
   async handleIss() {
-    const response = await fetch("http://api.open-notify.org/iss-now.json");
+    const response = await fetch(
+      "https://api.wheretheiss.at/v1/satellites/25544"
+    );
     let data = await response.json();
     this.setState({
-      lat: data.iss_position.latitude,
-      long: data.iss_position.longitude
+      lat: data.latitude,
+      long: data.longitude
     });
 
     setTimeout(() => {

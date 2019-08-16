@@ -34,7 +34,7 @@ export class Map extends Component {
         map.flyTo(latlng, 3);
         circle.setLatLng(latlng);
       }, 1000);
-    }, 500);
+    }, 1000);
   }
 
   render() {

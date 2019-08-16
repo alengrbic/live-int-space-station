@@ -2,7 +2,7 @@
   "name": "space",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://alengrbic.github.io/int-space-station-live",
+  "homepage": "http://alengrbic.github.io/live-int-space-station",
   "dependencies": {
     "gh-pages": "^2.1.1",
     "leaflet": "^1.5.1",
