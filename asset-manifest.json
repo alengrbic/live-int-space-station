@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/int-space-station-live/static/js/main.fbf85f28.chunk.js",
+    "main.js.map": "/int-space-station-live/static/js/main.fbf85f28.chunk.js.map",
+    "runtime~main.js": "/int-space-station-live/static/js/runtime~main.5a63f1f4.js",
+    "runtime~main.js.map": "/int-space-station-live/static/js/runtime~main.5a63f1f4.js.map",
+    "static/js/2.15dcbd7b.chunk.js": "/int-space-station-live/static/js/2.15dcbd7b.chunk.js",
+    "static/js/2.15dcbd7b.chunk.js.map": "/int-space-station-live/static/js/2.15dcbd7b.chunk.js.map",
+    "index.html": "/int-space-station-live/index.html",
+    "precache-manifest.ce945f62184c5a6c35830e69c40c84a4.js": "/int-space-station-live/precache-manifest.ce945f62184c5a6c35830e69c40c84a4.js",
+    "service-worker.js": "/int-space-station-live/service-worker.js"
+  }
+}
