@@ -8,20 +8,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #ddd;
+  background-image: url("https://wallpapercave.com/wp/dxXh4Ss.jpg");
+  background-size: cover;
   padding: 1rem;
   min-height: 100vh;
   width: auto;
 }
 
+.container h1 {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.678);
+  padding: 1rem;
+  border-radius: 15px;
+  border: 1px solid white;
+}
+
 .details {
-  background-color: #eee;
-  border: 1px solid black;
+  background-color: rgba(0, 0, 0, 0.678);
+  border: 1px solid white;
   border-radius: 15px;
   margin-bottom: 1rem;
   width: max-content;
   padding: 1rem;
   margin-top: 1rem;
+  color: white;
 }
 
 .details p {
