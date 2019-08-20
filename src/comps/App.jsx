@@ -28,8 +28,6 @@ export class App extends Component {
 
     let countryData = await getCountry.json();
 
-    console.log(countryData);
-
     if (countryData.address !== undefined) {
       this.setState({ country: countryData.address.country });
     } else {
