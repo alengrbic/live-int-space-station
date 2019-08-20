@@ -1,2 +1,2 @@
 # International Space Station Live
-This project was created as a ReactJS practice. It shows current location of ISS (International Space Station) in real time and updates every 5 seconds.
+This project was created as a ReactJS practice. It shows current location of ISS (International Space Station) in real time and updates every 5 seconds. It also displays a map using LeafletJS library and displays above which country ISS currently is by fetching country name from LocationIQ API using the latitude and longitude coordinates provided by WhereTheISSAt API.
