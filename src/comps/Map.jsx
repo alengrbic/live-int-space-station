@@ -1,44 +1,56 @@
-//CREATE MAP
 import React, { Component } from "react";
 import Leaf from "leaflet";
 
 export class Map extends Component {
   componentDidMount() {
-    setTimeout(() => {
-      let map = Leaf.map("map", {
-        center: [this.props.lat, this.props.long],
-        zoom: 3
-      });
+    let map = Leaf.map("map", {
+      center: [this.props.lat, this.props.long],
+      zoom: 3
+    });
 
-      Leaf.tileLayer(
-        "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibGVuaGF0dGVyIiwiYSI6ImNqemQ0MXN0eTAyeTkzZHF0N2hrYXJ0OXAifQ.B1CbsLP5XDiqxf76mLG0EA",
-        {
-          maxZoom: 18,
-          attribution:
-            'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-            '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-            'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-          id: "mapbox.streets"
-        }
-      ).addTo(map);
+    Leaf.tileLayer(
+      "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibGVuaGF0dGVyIiwiYSI6ImNqemQ0MXN0eTAyeTkzZHF0N2hrYXJ0OXAifQ.B1CbsLP5XDiqxf76mLG0EA",
+      {
+        maxZoom: 3,
+        minZoom: 3,
+        attribution:
+          'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+          '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+          'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        id: "mapbox.streets"
+      }
+    ).addTo(map);
 
-      let circle = Leaf.circle([this.props.lat, this.props.long], {
-        color: "red",
-        fillColor: "#f03",
-        fillOpacity: 0.5,
-        radius: 200000
-      }).addTo(map);
+    let iSS = Leaf.icon({
+      iconUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/d/d0/International_Space_Station.svg",
+      iconSize: [100, 100]
+    });
 
-      setInterval(() => {
-        let latlng = Leaf.latLng(this.props.lat, this.props.long);
-        map.flyTo(latlng, 3);
-        circle.setLatLng(latlng);
-      }, 1000);
+    let myISS = Leaf.marker([this.props.lat, this.props.long], {
+      icon: iSS
+    }).addTo(map);
+
+    setInterval(() => {
+      let latlng = Leaf.latLng(this.props.lat, this.props.long);
+      myISS.setLatLng(latlng);
     }, 1000);
   }
 
   render() {
-    return <div id="map" style={{ height: "50vh", width: "50vw" }} />;
+    return (
+      <div>
+        <div
+          id="map"
+          style={{
+            height: "50vh",
+            width: "50vw",
+            minWidth: "20rem",
+            textAlign: "center"
+          }}
+        />
+      </div>
+    );
   }
 }
 
