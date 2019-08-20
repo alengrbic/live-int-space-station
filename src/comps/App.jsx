@@ -16,7 +16,7 @@ export class App extends Component {
     long: null,
     velocity: null,
     altitude: null,
-    country: null
+    country: "Fetching Location..."
   };
 
   async handleCountry() {
@@ -60,13 +60,17 @@ export class App extends Component {
 
   componentDidMount() {
     this.handleIss();
-    this.handleCountry();
+    setTimeout(() => {
+      this.handleCountry();
+    }, 1000);
   }
 
   render() {
     let countrycode = "";
     if (this.state.country === null) {
       countrycode = <p>The ISS is above ocean.</p>;
+    } else if (this.state.country === "Fetching Location...") {
+      countrycode = <p>{this.state.country}.</p>;
     } else {
       countrycode = <p>The ISS is above {this.state.country}.</p>;
     }
