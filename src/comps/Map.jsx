@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Leaf from "leaflet";
+import "../styles/Map.css";
 
 export class Map extends Component {
   componentDidMount() {
