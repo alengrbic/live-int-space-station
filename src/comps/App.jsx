@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Map from "./Map";
-import "../styles/App.css";
 
 // Style the app actually
 
