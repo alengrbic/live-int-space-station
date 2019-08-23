@@ -67,13 +67,7 @@ export class App extends Component {
     render() {
 
         const CountryCode = () => {
-            if (this.state.country === null)
-                return "The ISS is above ocean.";
-            else if (this.state.country === "Fetching Location...")
-                return this.state.country + ".";
-            else
-                return "The ISS is above " + this.state.country + ".";
-
+            return this.state.country ? (this.state.country === "Fetching Location...") ? this.state.country + "." : "The ISS is above " + this.state.country + "." : "The ISS is above ocean.";
         };
 
         if (this.state.lat === null || this.state.long === null) {
