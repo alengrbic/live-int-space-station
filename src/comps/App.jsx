@@ -77,7 +77,7 @@ export class App extends Component {
         };
 
         if (this.state.lat === null || this.state.long === null) {
-            return <h1 className={"loading"}>Loading, please wait...</h1>;
+            return <div className={"loading"}>Loading, please wait...</div>;
         } else {
             return (
                 <div className="container">
