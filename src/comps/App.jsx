@@ -65,17 +65,19 @@ export class App extends Component {
     }
 
     render() {
-        let countrycode = "";
-        if (this.state.country === null) {
-            countrycode = <span>The ISS is above ocean.</span>;
-        } else if (this.state.country === "Fetching Location...") {
-            countrycode = <span>{this.state.country}.</span>;
-        } else {
-            countrycode = <span>The ISS is above {this.state.country}.</span>;
-        }
+
+        const CountryCode = () => {
+            if (this.state.country === null)
+                return "The ISS is above ocean.";
+            else if (this.state.country === "Fetching Location...")
+                return this.state.country + ".";
+            else
+                return "The ISS is above " + this.state.country + ".";
+
+        };
 
         if (this.state.lat === null || this.state.long === null) {
-            return <h1>Loading, please wait...</h1>;
+            return <h1 className={"loading"}>Loading, please wait...</h1>;
         } else {
             return (
                 <div className="container">
@@ -88,10 +90,10 @@ export class App extends Component {
                             <li className={"col-sm-3"}>Longitude: {this.state.long} </li>
                             <li className={"col-sm-3"}>Altitude: {this.state.altitude} KM</li>
                             <li className={"col-sm-3"}>Velocity: {this.state.velocity} KM/H</li>
-                            <li className={"col-sm-12"}>{countrycode}</li>
+                            <li className={"col-sm-12"}><CountryCode/></li>
                         </ul>
                     </div>
-                    <Map className="myMap" lat={this.state.lat} long={this.state.long}/>
+                    <Map lat={this.state.lat} long={this.state.long}/>
                 </div>
             );
         }
