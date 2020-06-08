@@ -16,27 +16,28 @@ export class App extends Component {
     long: null,
     velocity: null,
     altitude: null,
-    country: "Fetching Location..."
+    country: null,
   };
 
   async handleCountry() {
     const getCountry = await fetch(
-      `https://eu1.locationiq.com/v1/reverse.php?key=8a059ce76eacaf&lat=${
-        this.state.lat
-      }&lon=${this.state.long}&addressdetails=1&format=json`
+      `https://eu1.locationiq.com/v1/reverse.php?key=8a059ce76eacaf&lat=${this.state.lat}&lon=${this.state.long}&addressdetails=1&format=json`
     );
-
-    let countryData = await getCountry.json();
-
-    if (countryData.address !== undefined) {
-      this.setState({ country: countryData.address.country });
+    if (getCountry.status === 404) {
+      console.log("ISS is above sea, cannot fetch");
     } else {
-      this.setState({ country: null });
-    }
+      let countryData = await getCountry.json();
 
-    setTimeout(() => {
-      this.handleCountry();
-    }, 10000);
+      if (countryData.address !== undefined) {
+        this.setState({ country: countryData.address.country });
+      } else {
+        this.setState({ country: null });
+      }
+
+      setTimeout(() => {
+        this.handleCountry();
+      }, 10000);
+    }
   }
 
   async handleIss() {
@@ -49,7 +50,7 @@ export class App extends Component {
       lat: data.latitude,
       long: data.longitude,
       velocity: data.velocity.toFixed(2),
-      altitude: data.altitude.toFixed(2)
+      altitude: data.altitude.toFixed(2),
       /* country: countryData.countryName */
     });
 
